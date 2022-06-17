@@ -1,0 +1,16 @@
+<!-- ./views/show.handlebars -->
+<div class="container py-5">
+  <div class="text-center">
+    <img class="rounded mb-4" src="{{restaurant.image}}" alt="Card image cap" style="max-height: 900px;">
+  </div>
+  <div class="row">
+    <div class="col-12 col-md-10 col-lg-8 mx-auto">
+      <h5 class="card-title text-start">{{restaurant.name}}</h5>
+      <h6 class="card-title text-start">♨類別：{{restaurant.category}}</h6>
+      <h6 class="card-title text-start">★評分：{{restaurant.rating}}</h6>
+      <h6 class="card-title text-start">🏠地址：{{restaurant.location}}</h6>
+      <h6 class="card-title text-start">☎電話：{{restaurant.phone}}</h6>
+      <h6>{{restaurant.description}}</h6>
+    </div>
+  </div>
+</div>
