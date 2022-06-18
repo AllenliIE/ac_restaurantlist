@@ -1,16 +1,42 @@
 <!-- ./views/show.handlebars -->
-<div class="container py-5">
-  <div class="text-center">
-    <img class="rounded mb-4" src="{{restaurant.image}}" alt="Card image cap" style="max-height: 900px;">
-  </div>
+<h1 class="mb-1 restaurant-show-title">{{restaurant.name}}</h1>
+<div class="container">
   <div class="row">
-    <div class="col-12 col-md-10 col-lg-8 mx-auto">
-      <h5 class="card-title text-start">{{restaurant.name}}</h5>
-      <h6 class="card-title text-start">♨類別：{{restaurant.category}}</h6>
-      <h6 class="card-title text-start">★評分：{{restaurant.rating}}</h6>
-      <h6 class="card-title text-start">🏠地址：{{restaurant.location}}</h6>
-      <h6 class="card-title text-start">☎電話：{{restaurant.phone}}</h6>
-      <h6>{{restaurant.description}}</h6>
+    <div class="col-12 col-md-10 mx-auto">
+
+      <p class="mb-1">
+        <span class="text-secondary">
+          <i class="fas fa-utensils pr-2"></i>
+          類別：
+        </span>
+        {{restaurant.category}}
+      </p>
+
+      <p class="mb-1">
+        <span class="text-secondary">
+          <i class="fas fa-map-marker-alt pr-2"></i>
+          地址：
+        </span>
+        {{restaurant.location}}
+        <a href="{{restaurant.google_map}}" class="text-secondary" target="_blank">
+          <i class="fas fa-location-arrow pr-2 fa-xs"></i>
+        </a>
+      </p>
+
+      <p class="mb-1">
+        <span class="text-secondary">
+          <i class="fas fa-mobile-alt pr-2"></i>
+          電話：
+        </span>
+        {{restaurant.phone}}
+      </p>
+
+      <p class="mb-5">
+        {{restaurant.description}}
+      </p>
+
+      <img class="rounded mx-auto d-block mb-4 w-100" src="{{restaurant.image}}" alt="{{restaurant.name}}"
+        style="max-width: 600px;" />
     </div>
   </div>
 </div>

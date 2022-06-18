@@ -5,18 +5,28 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Restaurant List</title>
   <!-- include css files here -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css" />
   <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+  <link rel="stylesheet" href="/style/main.css">
+  <title>Restaurant List</title>
 </head>
 
 <body>
-  <!-- nabigation -->
-  <nav class="navbar navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Restaurant List</a>
-    </div>
-  </nav>
+  <header>
+    <!-- navigation -->
+    <nav class="navbar navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="/">
+          <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png"
+            width="30" height="30" class="d-inline-block align-top" alt="Allen的餐廳清單">
+          Allen的餐廳清單
+        </a>
+      </div>
+    </nav>
+
+    <div class="banner"></div>
+  </header>
   <!-- partial templates will replace the part of body here -->
   {{{body}}}
   <script src="/javascript/popper.js"></script>
