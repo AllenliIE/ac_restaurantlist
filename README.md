@@ -14,3 +14,47 @@
 3. 新增喜愛餐廳分頁與ICON。
 4. 新增可填寫之表達，將新增的餐廳納入資料庫。
 5. 優化名稱與分類的雙搜尋寫法。
+
+
+2022/06/18 於main、index頁面新增風格的樣式。
+
+## Getting Start
+
+1.  Clone the project
+
+```
+git clone https://github.com/flowerhahaha/restaurant-collection.git
+```
+
+2.  Install the required dependencies
+
+```
+npm install
+```
+
+3.  Install nodemon
+
+```
+npm i nodemon
+```
+
+4.  Start the server
+
+```
+npm run dev
+```
+
+5.  Execute successfully if seeing following message
+
+```
+App is running on http://localhost:3000
+```
+
+## Built With
+
+-   node.js @ 14.16.0
+-   express @ 4.16.4
+-   express-handlebars @ 3.0.0
+-   bootstrap @ 5.0
+-   font-awesome @ 5.8.1
+
