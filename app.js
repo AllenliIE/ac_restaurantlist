@@ -4,6 +4,8 @@ const exphbs = require('express-handlebars')
 const restaurantList = require('./restaurants.json').results
 const app = express()
 const port = 3000
+const Restaurantlist = require('./models/restaurantlist')
+
 //setting mongoose
 const mongoose = require('mongoose') //載入mongoose
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true }) //連線到mongoDB
@@ -24,10 +26,13 @@ app.set('view engine', 'handlebars')
 app.use(express.static('public'))
 
 //routes setting
-app.get('/', (req, res) => [
-  //past the movie data into 'index' partial template
-  res.render('index', { restaurants: restaurantList })
-])
+app.get('/', (req, res) => {
+
+  Restaurantlist.find()
+    .lean()
+    .then(restaurantlists => res.render('index', { restaurantlists }))
+    .catch(error => console.error(error))
+})
 
 app.get('/restaurants/:restaurant_id', (req, res) => {
   const restaurant = restaurantList.find(
