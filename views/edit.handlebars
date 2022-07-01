@@ -1,13 +1,14 @@
 <!-- add favorite restaurantlist -->
 <div class="container mx-auto p-5 my-5 text-dark">
-  <h2 class="text-center">加入我最愛的餐廳清單</h2>
+  <h2 class="text-center">更新我最愛的餐廳清單</h2>
   <div class="p-3 mt-3">
-    <form action="/restaurants" method="POST" class="font-weight-light">
+    <form action="/restaurants/{{restaurant._id}}/edit" method="POST" class="font-weight-light">
       <!-- Chinese name  -->
       <div class="form-group row">
         <label for="name" class="col-sm-2 col-form-label">中文名稱</label>
         <div class="col-sm-10">
-          <input type="name" name="name" class="form-control" id="name" placeholder="中文名稱" required>
+          <input type="name" name="name" class="form-control" id="name" placeholder="中文名稱" value="{{restaurant.name}}"
+            required>
         </div>
       </div>
 
@@ -15,7 +16,8 @@
       <div class="form-group row">
         <label for="name_en" class="col-sm-2 col-form-label">英文名稱</label>
         <div class="col-sm-10">
-          <input type="name" name="name_en" class="form-control" id="name_en" placeholder="英文名稱" required>
+          <input type="name" name="name_en" class="form-control" id="name_en" placeholder="英文名稱"
+            value="{{restaurant.name_en}}" required>
         </div>
       </div>
 
@@ -23,7 +25,8 @@
       <div class="form-group row">
         <label for="category" class="col-sm-2 col-form-label">餐廳類型</label>
         <div class="col-sm-10">
-          <input type="text" name="category" class="form-control" id="category" placeholder="中東料理、義式餐廳、日本料理" required>
+          <input type="text" name="category" class="form-control" id="category" placeholder="中東料理、義式餐廳、日本料理"
+            value="{{restaurant.category}}" required>
         </div>
       </div>
 
@@ -31,7 +34,8 @@
       <div class="form-group row">
         <label for="image" class="col-sm-2 col-form-label">餐廳網址</label>
         <div class="col-sm-10">
-          <input type="text" name="image" class="form-control" id="image" placeholder="https://abc.jpg">
+          <input type="text" name="image" class="form-control" id="image" placeholder="https://abc.jpg"
+            value="{{restaurant.image}}">
         </div>
       </div>
 
@@ -39,7 +43,8 @@
       <div class="form-group row">
         <label for="location" class="col-sm-2 col-form-label">餐廳地址</label>
         <div class="col-sm-10">
-          <input type="text" name="location" class="form-control" id="location" placeholder="郵遞區號 XX市 XX區 XX路 X段 X號 X樓">
+          <input type="text" name="location" class="form-control" id="location" placeholder="郵遞區號 XX市 XX區 XX路 X段 X號 X樓"
+            value="{{restaurant.location}}">
         </div>
       </div>
 
@@ -47,7 +52,8 @@
       <div class="form-group row">
         <label for="phone" class="col-sm-2 col-form-label">餐廳電話</label>
         <div class="col-sm-10">
-          <input type="text" name="phone" class="form-control" id="phone" placeholder=" 00-0000-0000">
+          <input type="text" name="phone" class="form-control" id="phone" placeholder=" 00-0000-0000"
+            value="{{restaurant.phone}}">
         </div>
       </div>
 
@@ -56,7 +62,7 @@
         <label for="google_map" class="col-sm-2 col-form-label">Google Map</label>
         <div class="col-sm-10">
           <input type="text" name="google_map" class="form-control" id="google_map"
-            placeholder="https://goo.gl/maps/abcdefg">
+            placeholder="https://goo.gl/maps/abcdefg" value="{{restaurant.google_map}}">
         </div>
       </div>
 
@@ -65,7 +71,7 @@
         <label for="rating" class="col-sm-2 col-form-label">餐廳評分</label>
         <div class="col-sm-5">
           <input type="number" name="rating" class="form-control" id="rating" min="0" max="5" step="0.1"
-            placeholder="5.0" required>
+            placeholder="5.0" value="{{restaurant.rating}}" required>
         </div>
       </div>
 
@@ -73,14 +79,16 @@
       <div class="form-group row">
         <label for="description" class="col-sm-2 col-form-label">餐廳介紹</label>
         <div class="col-sm-10">
-          <textarea name="description" id="description" cols="48" rows="3" placeholder="請描述此餐廳的特色"></textarea>
+          <textarea name="description" id="description" cols="48" rows="3"
+            placeholder="請描述此餐廳的特色">{{restaurant.description}}</textarea>
         </div>
       </div>
 
       <!-- submit button -->
-      <div class="form-group row">
+      <div class="form-group row text-center">
         <div class="col-sm-10">
           <button type="submit" class="btn btn-primary" id="createItem">送出</button>
+          <a class="btn btn-primary" href="/">Black</a>
         </div>
       </div>
 

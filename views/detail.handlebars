@@ -37,11 +37,11 @@
   <div class="row justify-content-center">
     <a class="text-decoration-underline col-lg-3 col-10 my-1 mx-1" href="/">Black</a>
     <!-- restaurants 資料庫的編號屬性為 _id -->
-    <a class="btn btn-sm btn-info col-lg-3 col-10 my-1 mx-1" href="/restaurants/{{this._id}}/edit">Edit</a>
+    <a class="btn btn-sm btn-info col-lg-3 col-10 my-1 mx-1" href="/restaurants/{{restaurant._id}}/edit">Edit</a>
     <form class="col-lg-5 col-10 my-1 p-0">
       <!-- Button trigger modal -->
       <button type="button" class="btn btn-sm btn-danger col-12" data-toggle="modal"
-        data-target="#trigger-deleteItem-{{this._id}}">Delete</button>
+        data-target="#trigger-deleteItem-{{restaurant._id}}">Delete</button>
     </form>
   </div>
 </div>
