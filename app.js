@@ -1,7 +1,7 @@
 //require package used in the project
 const express = require('express')
 const exphbs = require('express-handlebars')
-const restaurantList = require('./restaurants.json').results
+// const restaurantList = require('./restaurants.json').results 
 const app = express()
 const port = 3000
 const Restaurant = require('./models/restaurant')
@@ -118,7 +118,7 @@ app.post('/restaurants/:id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
-//setting search restaurant
+//setting search function
 app.get('/search', (req, res) => {
   if (!req.query.keyword) {
     return res.redirect('/')
@@ -130,6 +130,15 @@ app.get('/search', (req, res) => {
     restaurant.category.includes(keywords)
   )
   res.render('index', { restaurants: restaurants, keyword })
+})
+
+//setting delete function
+app.post('/restaurants/:id/delete', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .then(restaurant => restaurant.remove())
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
 })
 
 //start and listen on the Express server
