@@ -23,6 +23,7 @@ db.once('open', () => {
 app.engine('handlebars', exphbs.engine({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
+//use body-parser
 app.use(bodyParser.urlencoded({ extended: true }))
 
 //setting static files
@@ -41,6 +42,7 @@ app.get('/restaurants/new', (req, res) => {
   return res.render('new')
 })
 
+//setting restaurant function
 app.post('/restaurants', (req, res) => {
   const name = req.body.name
   const name_en = req.body.name_en
@@ -69,14 +71,16 @@ app.post('/restaurants', (req, res) => {
     .catch(error => console.log(error))
 })
 
-
-app.get('/restaurants/:restaurant_id', (req, res) => {
-  const restaurant = restaurantList.find(
-    restaurant => restaurant.id === Number(req.params.restaurant_id)
-  )
-  res.render('show', { restaurant })
+//setting show.handlebars
+app.get('/restaurants/:id', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .lean()
+    .then(restaurant => res.render('detail', { restaurant }))
+    .catch(error => console.log(error))
 })
 
+//setting search restaurant
 app.get('/search', (req, res) => {
   if (!req.query.keyword) {
     return res.redirect('/')
