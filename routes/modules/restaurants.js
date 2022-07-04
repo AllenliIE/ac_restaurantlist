@@ -83,20 +83,6 @@ router.put('/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
-//setting search function
-router.get('/search', (req, res) => {
-  if (!req.query.keyword) {
-    return res.redirect('/')
-  }
-  const keyword = req.query.keyword
-  const keywords = req.query.keyword.trim().toLowerCase()
-  const restaurants = restaurantList.filter(restaurant =>
-    restaurant.name.toLowerCase().includes(keywords) ||
-    restaurant.category.includes(keywords)
-  )
-  res.render('index', { restaurants: restaurants, keyword })
-})
-
 //setting delete function
 router.delete('/:id', (req, res) => {
   const id = req.params.id
