@@ -2,7 +2,7 @@
 <div class="container mx-auto p-5 my-5 text-dark">
   <h2 class="text-center">更新我最愛的餐廳清單</h2>
   <div class="p-3 mt-3">
-    <form action="/restaurants/{{restaurant._id}}/edit" method="POST" class="font-weight-light">
+    <form action="/restaurants/{{restaurant._id}}?_method=PUT" method="POST" class="font-weight-light">
       <!-- Chinese name  -->
       <div class="form-group row">
         <label for="name" class="col-sm-2 col-form-label">中文名稱</label>

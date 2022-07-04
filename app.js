@@ -6,6 +6,7 @@ const app = express()
 const port = 3000
 const Restaurant = require('./models/restaurant')
 const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
 
 //setting mongoose
 const mongoose = require('mongoose') //load mongoose
@@ -25,6 +26,8 @@ app.set('view engine', 'handlebars')
 
 //use body-parser
 app.use(bodyParser.urlencoded({ extended: true }))
+//use method-override
+app.use(methodOverride('_method'))
 
 //setting static files
 app.use(express.static('public'))
@@ -88,7 +91,7 @@ app.get('/restaurants/:id/edit', (req, res) => {
     .then(restaurant => res.render('edit', { restaurant }))
     .catch(error => console.log(error))
 })
-app.post('/restaurants/:id/edit', (req, res) => {
+app.put('/restaurants/:id', (req, res) => {
   const id = req.params.id
   const name = req.body.name
   const name_en = req.body.name_en
@@ -133,7 +136,7 @@ app.get('/search', (req, res) => {
 })
 
 //setting delete function
-app.post('/restaurants/:id/delete', (req, res) => {
+app.delete('/restaurants/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
     .then(restaurant => restaurant.remove())
