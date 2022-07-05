@@ -3,7 +3,7 @@ const router = express.Router()
 const Restaurant = require('../../models/restaurant')
 
 //setting search function
-router.get('/search', (req, res) => {
+router.get('/', (req, res) => {
   if (!req.query.keyword) {
     return res.redirect('/')
   }
@@ -13,7 +13,8 @@ router.get('/search', (req, res) => {
     restaurant.name.toLowerCase().includes(keywords) ||
     restaurant.category.includes(keywords)
   )
-  res.render('index', { restaurants: restaurants, keyword })
+
+  res.render('index', { restaurants, keyword })
 })
 
 module.exports = router
