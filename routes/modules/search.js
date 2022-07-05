@@ -4,16 +4,16 @@ const Restaurant = require('../../models/restaurant')
 
 //setting search function
 router.get('/', (req, res) => {
-  const keyword = req.query.keyword
+  const keywords = req.query.keyword
 
   return Restaurant.find()
     .lean()
     .then(Restaurant => {
       const restaurants = Restaurant.filter(list => {
-        return list.name.toLowerCase().includes(keyword.toLowerCase()) ||
-          list.category.toLowerCase().includes(keyword.toLowerCase())
+        return list.name.toLowerCase().includes(keywords.toLowerCase()) ||
+          list.category.toLowerCase().includes(keywords.toLowerCase())
       })
-      res.render('index', { restaurants, keyword })
+      res.render('index', { restaurants, keywords })
     })
     .catch(error => console.error(error))
 })
