@@ -19,19 +19,15 @@ const restaurantSchema = new Schema({
   },
   image: {
     type: String,
-    required: true
   },
   location: {
     type: String,
-    required: true
   },
   phone: {
     type: String,
-    required: true
   },
   google_map: {
     type: String,
-    required: true
   },
   rating: {
     type: Number,
@@ -39,7 +35,6 @@ const restaurantSchema = new Schema({
   },
   description: {
     type: String,
-    required: true
   }
 })
 
