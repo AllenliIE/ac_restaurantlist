@@ -53,9 +53,12 @@ router.get('/:id/edit', (req, res) => {
     .then(restaurant => res.render('edit', { restaurant }))
     .catch(error => console.log(error))
 })
+
+//Define route and editing details
 router.put('/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.findByIdAndUpdate(id, req.body)
+    .then(() => res.redirect(`/restaurants/${id}`)) //edit and back to the show
     .catch(error => console.log(error))
 })
 
