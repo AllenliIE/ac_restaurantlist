@@ -2,36 +2,20 @@ const express = require('express')
 const router = express.Router()
 const Restaurant = require('../../models/restaurant')
 
-router.get('/nameAse', (req, res) => {
-  Restaurant.find()
+//get the sort router
+router.get('/:sort', (req, res) => {
+  const sortOptions = {
+    'nameAse': 'name',
+    'nameDesc': '-name',
+    'category': 'category',
+    'location': 'location'
+  }
+
+  let sortParam = sortOptions[req.params.sort] || ''
+  Restaurant
+    .find()
     .lean()
-    .sort({ name: 'asc' })
-    .then(restaurants => {
-      res.render('index', { restaurants })
-    })
-    .catch(error => { console.log(error) })
-})
-
-router.get('/nameDesc', (req, res) => {
-  Restaurant.find()
-    .lean()
-    .sort({ name: 'desc' })
-    .then(restaurants => {
-      res.render('index', { restaurants })
-    })
-    .catch(error => { console.log(error) })
-})
-
-router.get('/category', (req, res) => {
-  Restaurant.find().lean().sort({ category: 'desc' })
-    .then(restaurants => {
-      res.render('index', { restaurants })
-    })
-    .catch(error => { console.log(error) })
-})
-
-router.get('/location', (req, res) => {
-  Restaurant.find().lean().sort({ location: 'desc' })
+    .sort(sortParam)
     .then(restaurants => {
       res.render('index', { restaurants })
     })
