@@ -8,6 +8,9 @@ const session = require('express-session')
 const usePassport = require('./config/passport')
 const flash = require('connect-flash')
 
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 //load config mongoose
 require('./config/mongoose')
 
@@ -25,7 +28,7 @@ app.use(methodOverride('_method'))
 app.use(express.static('public'))
 //setting session
 app.use(session({
-  secret: 'ThisIsMySecret',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true
 }))
