@@ -9,11 +9,10 @@
 5. 使用者可以修改一家餐廳的資訊。
 6. 使用者可以刪除一家餐廳。
 7. 使用者可以選擇餐廳的排序。
-
-
-**下一階段預計更新**
-1. 新增卡片與清單顯示模式的切換功能。
-2. 新增登入與註冊介面與功能。
+8. 使用者可以註冊帳號，註冊的資料包括：名字、email、密碼、確認密碼。
+9. 使用者也可以透過 Facebook Login 直接登入。
+10. 使用者的密碼要使用 bcrypt 來處理。
+11. 使用者必須登入才能使用餐廳清單(預設 user1, user2 使用者)。
 
 ## Getting Start
 
@@ -57,10 +56,16 @@ App is running on http://localhost:3000
 
 -   node.js @14.16.0
 -   express @4.16.4
--   express-handlebars @3.0.0
+-   express-handlebars @6.0.6
 -   bootstrap @5.0
 -   font-awesome @5.8.1
 -   mongoosedb @5.9.7
 -   method-override @3.0.0
-
-
+-   body-parser @1.20.0
+-   express-session @1.17.1
+-   passport @0.4.1
+-   passport-facebook @3.0.0
+-   passport-local @1.0.0
+-   bcryptjs @2.4.3
+-   connect-flash @0.1.1
+-   dotenv @8.2.0
