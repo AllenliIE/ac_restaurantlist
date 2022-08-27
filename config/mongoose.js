@@ -1,6 +1,7 @@
 //setting mongoose
 const mongoose = require('mongoose') //load mongoose
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true }) //link mongoDB
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/restaurant'
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }) //open useCreateIndex
 
 const db = mongoose.connection
 db.on('error', () => {
