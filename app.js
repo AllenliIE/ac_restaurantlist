@@ -4,6 +4,7 @@ const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const routes = require('./routes')
+const session = require('express-session')
 //load config mongoose
 require('./config/mongoose')
 
@@ -19,6 +20,12 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 //setting static files
 app.use(express.static('public'))
+//setting session
+app.use(session({
+  secret: 'ThisIsMySecret',
+  resave: false,
+  saveUninitialized: true
+}))
 //use routes 
 app.use(routes)
 
