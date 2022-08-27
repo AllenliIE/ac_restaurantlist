@@ -17,16 +17,18 @@
     <!-- navigation -->
     <nav class="navbar navbar-light bg-light">
       <div class="container">
+        <!-- views/layouts/main.hbs -->
         <a class="navbar-brand" href="/">
           <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png"
-            width="30" height="30" class="d-inline-block align-top" alt="Allen的餐廳清單">
-          Allen的餐廳清單
+            width="30" height="30" class="d-inline-block align-top" alt="餐廳清單">
+          {{#if isAuthenticated}}{{ user.name}}'s {{/if}}
+          餐廳清單
         </a>
-        <div class="container-right">
-          <div class="d-inline-block">
-            <a class="btn btn-info d-inline-block ml-2" href="/restaurants/new">新增餐廳<i class="fas fa-plus ml-2"></i></a>
-          </div>
-        </div>
+        {{#if isAuthenticated}}
+        <a href="/users/logout" class="btn btn-info">Logout</a>
+        {{else}}
+        <a href="/users/login" class="btn btn-info">Login</a>
+        {{/if}}
       </div>
     </nav>
 
