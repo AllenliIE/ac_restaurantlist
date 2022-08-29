@@ -4,6 +4,7 @@ const Restaurant = require('../../models/restaurant')
 
 //get the sort router
 router.get('/:sort', (req, res) => {
+  const userId = req.user._id
   const sortOptions = {
     'nameAse': 'name',
     'nameDesc': '-name',
@@ -13,7 +14,7 @@ router.get('/:sort', (req, res) => {
 
   let sortParam = sortOptions[req.params.sort] || ''
   Restaurant
-    .find()
+    .find({ userId })
     .lean()
     .sort(sortParam)
     .then(restaurants => {
