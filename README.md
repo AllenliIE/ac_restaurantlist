@@ -19,7 +19,7 @@
 1.  Clone the project
 
 ```
-git clone https://github.com/flowerhahaha/restaurant-collection.git
+git clone https://github.com/AllenliIE/ac_restaurantlist
 ```
 
 2.  Install the required dependencies
